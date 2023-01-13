@@ -24,6 +24,25 @@ public class Graph {
 	 * Liste des arcs
 	 */
 	private List<Edge> edges = new ArrayList<>();
+	
+	/**
+	 * Create Vertex, insead of Constructor
+	 */
+	public Vertex createVertex(Coordinate coordinate,String id) {
+		Vertex vertex = new Vertex();
+		vertex.setId(id);
+		vertex.setCoordinate(coordinate);
+		this.getVertices().add(vertex);
+		return vertex;
+		}
+	
+	public Edge createEdge(Vertex source,Vertex target, String id) {
+		Edge edge = new Edge(source,target);
+		edge.setId(id);
+		this.getEdges().add(edge);
+		return edge;
+		}
+	
 
 	/**
 	 * Récupération de la liste sommets
@@ -32,15 +51,6 @@ public class Graph {
 	 */
 	public Collection<Vertex> getVertices() {
 		return vertices;
-	}
-
-	/**
-	 * Récupération de la liste arcs
-	 * 
-	 * @return
-	 */
-	public void setVertices(List<Vertex> vertices) {
-		this.vertices = vertices;
 	}
 
 	/**
@@ -138,13 +148,5 @@ public class Graph {
 		return result;
 	}
 
-	/**
-	 * Définition de la liste des arcs
-	 * 
-	 * @param edges
-	 */
-	public void setEdges(List<Edge> edges) {
-		this.edges = edges;
-	}
 
 }

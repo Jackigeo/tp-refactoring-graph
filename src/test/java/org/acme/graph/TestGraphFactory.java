@@ -15,37 +15,18 @@ public class TestGraphFactory {
 	public static Graph createGraph01() {
 		Graph graph = new Graph();
 
-		Vertex a = new Vertex();
-		a.setId("a");
-		a.setCoordinate(new Coordinate(0.0, 0.0));
-		graph.getVertices().add(a);
+		
+		Vertex a = graph.createVertex(new Coordinate(0.0, 0.0), "a");
 
-		Vertex b = new Vertex();
-		b.setId("b");
-		b.setCoordinate(new Coordinate(1.0, 0.0));
-		graph.getVertices().add(b);
+		Vertex b = graph.createVertex(new Coordinate(1.0, 0.0), "b");
 
-		Vertex c = new Vertex();
-		c.setId("c");
-		c.setCoordinate(new Coordinate(2.0, 0.0));
-		graph.getVertices().add(c);
+		Vertex c = graph.createVertex(new Coordinate(2.0, 0.0), "c");
 
-		Vertex d = new Vertex();
-		d.setId("d");
-		d.setCoordinate(new Coordinate(1.0, 1.0));
-		graph.getVertices().add(d);
+		Vertex d = graph.createVertex(new Coordinate(1.0, 1.0), "d");
 
-		Edge ab = new Edge(a,b);
-		ab.setId("ab");
-		graph.getEdges().add(ab);
-
-		Edge bc = new Edge(b,c);
-		bc.setId("bc");
-		graph.getEdges().add(bc);
-
-		Edge ad = new Edge(a,d);
-		ad.setId("ad");
-		graph.getEdges().add(ad);
+		graph.createEdge(a, b, "ab");
+		graph.createEdge(b, c, "bc");
+		graph.createEdge(a, d, "ad");
 
 		return graph;
 	}
