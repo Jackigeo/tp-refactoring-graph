@@ -48,7 +48,7 @@ public class GraphTest {
 		Graph g = TestGraphFactory.createGraph01();
 		Vertex a = g.findVertex("a");
 		assertNotNull(a);
-		List<Edge> result = g.getOutEdges(a);
+		List<Edge> result = a.getOutEdges();
 		assertEquals(2, result.size());
 		assertEquals("ab (a->b)", result.get(0).toString());
 		assertEquals("ad (a->d)", result.get(1).toString());
@@ -59,7 +59,7 @@ public class GraphTest {
 		Graph g = TestGraphFactory.createGraph01();
 		Vertex b = g.findVertex("b");
 		assertNotNull(b);
-		List<Edge> result = g.getInEdges(b);
+		List<Edge> result = b.getInEdges();
 		assertEquals(1, result.size());
 		assertEquals("ab (a->b)", result.get(0).toString());
 	}
